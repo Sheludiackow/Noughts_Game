@@ -17,47 +17,49 @@ public class Main {
         while (true) {
             humanTurn();
             printMap();
-            if (checkWin(HUMAN_DOT)){
-                System.out.println("Победил человек");
+            if (checkWin(HUMAN_DOT)) {
+                System.out.println("Победил человек!");
+                break;
             }
             if (isMapFull()) {
                 break;
             }
             aiTurn();
             printMap();
-            if (checkWin(AI_DOT)){
-                System.out.println("Победил компьютер");
+            if (checkWin(AI_DOT)) {
+                System.out.println("Победил компьютер!");
+                break;
             }
             if (isMapFull()) {
                 break;
             }
         }
-        System.out.println("Game over");
+        System.out.println("Игра закончена!");
     }
 
     public static boolean checkWin(char dot) {
-        if(map[0][0] == dot && map[0][1] == dot && map[0][2] == dot){
+        if (map[0][0] == dot && map[0][1] == dot && map[0][2] == dot) {
             return true;
         }
-        if(map[1][0] == dot && map[1][1] == dot && map[1][2] == dot){
+        if (map[1][0] == dot && map[1][1] == dot && map[1][2] == dot) {
             return true;
         }
-        if(map[2][0] == dot && map[2][1] == dot && map[2][2] == dot){
+        if (map[2][0] == dot && map[2][1] == dot && map[2][2] == dot) {
             return true;
         }
-        if(map[0][0] == dot && map[1][0] == dot && map[2][0] == dot){
+        if (map[0][0] == dot && map[1][0] == dot && map[2][0] == dot) {
             return true;
         }
-        if(map[0][1] == dot && map[1][1] == dot && map[2][1] == dot){
+        if (map[0][1] == dot && map[1][1] == dot && map[2][1] == dot) {
             return true;
         }
-        if(map[0][2] == dot && map[1][2] == dot && map[2][2] == dot){
+        if (map[0][2] == dot && map[1][2] == dot && map[2][2] == dot) {
             return true;
         }
-        if(map[0][0] == dot && map[1][1] == dot && map[2][2] == dot){
+        if (map[0][0] == dot && map[1][1] == dot && map[2][2] == dot) {
             return true;
         }
-        if(map[2][0] == dot && map[1][1] == dot && map[0][2] == dot){
+        if (map[2][0] == dot && map[1][1] == dot && map[0][2] == dot) {
             return true;
         }
         return false;
@@ -96,7 +98,7 @@ public class Main {
     public static void humanTurn() {
         int x, y;
         do {
-            System.out.println("Введите ячейку в формате X Y");
+            System.out.println("Введите ячейку в формате X Y:");
             x = sc.nextInt() - 1;
             y = sc.nextInt() - 1;
         } while (!isCellValid(x, y));
