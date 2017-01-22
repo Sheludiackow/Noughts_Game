@@ -1,5 +1,7 @@
 package com.company;
 
+import com.sun.org.apache.xpath.internal.SourceTree;
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -14,12 +16,35 @@ public class Main {
     public static void main(String[] args) {
         initMap();
         printMap();
+    while (true){
         humanTurn();
         printMap();
+        if(isMapFull()){
+            break;
+        }
         aiTurn();
         printMap();
+        if(isMapFull()){
+            break;
+        }
+        }
+        System.out.println("Game over");
     }
 
+    public static boolean checkWin(char dot) {
+        if(map[][]== dot ) // тут
+    }
+
+    public static boolean isMapFull(){
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++){
+                if(map[i][j]== EMPTY){
+                return false;
+                }
+            }
+        }
+        return true;
+    }
     public static void aiTurn() {
         int x,y;
         do {
@@ -58,6 +83,7 @@ public class Main {
         }
     }
     public static void printMap() {
+        System.out.println();
         System.out.println("  1 2 3");
         for (int i = 0; i < 3; i++) {
             System.out.print((i+1)+" ");
